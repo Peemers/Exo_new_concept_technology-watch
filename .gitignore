@@ -1,0 +1,15 @@
+# Build results
+bin/
+obj/
+
+# Rider / JetBrains
+.idea/
+
+# User-specific files
+*.user
+
+# Rider scratch files
+Scratches and Consoles
+
+# appsettings sensibles si besoin plus tard
+appsettings.Development.json
