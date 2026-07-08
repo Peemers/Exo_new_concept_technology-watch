@@ -1,4 +1,6 @@
-﻿using BusinessRoomBooking.Infrastructure.DataBase.Context;
+﻿using BusinessRoomBooking.Core.Interfaces.Repositories;
+using BusinessRoomBooking.Infrastructure.DataBase.Context;
+using BusinessRoomBooking.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,10 @@ public static class InfrastructureExtensions
     //DbContext
     services.AddDbContext<BusinessRoomBookingContext>(options =>
       options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    
+    //Repo
+    services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+    services.AddScoped<IBookingRepository, BookingRepository>();
     
     return services;
   }

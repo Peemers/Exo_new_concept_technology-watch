@@ -1,4 +1,5 @@
-﻿using BusinessRoomBooking.Core.Interfaces.Repositories;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Queries;
+using BusinessRoomBooking.Core.Interfaces.Repositories;
 using BusinessRoomBooking.Domain;
 using BusinessRoomBooking.Infrastructure.DataBase.Context;
 using Microsoft.EntityFrameworkCore;
@@ -20,5 +21,18 @@ public class BookingRepository(BusinessRoomBookingContext context)
     }
 
     return await query.AnyAsync();
+  }
+
+  public async Task<IEnumerable<UpcomingBookingDto>> GetUpcomingBookingsByRoomAsync(Guid roomId)
+  {
+    return await DbSet
+      .Where(b => b.RoomId == roomId && b.StartDate >= DateTime.UtcNow)
+      .Select(b => new UpcomingBookingDto
+      {
+        StartDate = b.StartDate,
+        EndDate = b.EndDate,
+        WorkerFirstName = b.Worker.FirstName,
+        WorkerLastName = b.Worker.LastName,
+      }).ToListAsync();
   }
 }
