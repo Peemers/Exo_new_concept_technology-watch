@@ -46,4 +46,11 @@ public static class BookingMapper
       Worker = worker
     };
   }
+
+  public static void UpdateFromDto(this Booking booking, UpdateBookingRequestDto dto)
+  {
+    booking.StartDate = dto.StartDate;
+    booking.EndDate = dto.EndDate;
+    booking.NumberOfParticipant = dto.NumberOfParticipant;
+  }
 }

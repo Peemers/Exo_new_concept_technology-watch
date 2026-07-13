@@ -1,7 +1,6 @@
 ﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
 using BusinessRoomBooking.Core.Dtos.Booking.Response;
 using BusinessRoomBooking.Core.Interfaces.Services;
-using BusinessRoomBooking.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessRoomBooking.Controllers;
@@ -21,6 +20,20 @@ public class BookingController
   public async Task<ActionResult<BookingResponseDto>> GetById(Guid id)
   {
     BookingResponseDto booking = await bookingService.GetBookingByIdAsync(id);
+    return Ok(booking);
+  }
+
+  [HttpDelete("{id:guid}")]
+  public async Task<IActionResult> CancelBooking(Guid id)
+  {
+    await bookingService.CancelBookingAsync(id);
+    return NoContent();
+  }
+
+  [HttpPatch("{id:guid}")]
+  public async Task<ActionResult<BookingResponseDto>> UpdateBookingAsync(Guid id, [FromBody] UpdateBookingRequestDto dto)
+  {
+    BookingResponseDto booking = await bookingService.UpdateBookingDateAsync(id, dto);
     return Ok(booking);
   }
 }

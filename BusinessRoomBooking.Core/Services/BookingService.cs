@@ -51,4 +51,48 @@ public class BookingService(
     }
     return booking.ToBookingResponseDto();
   }
+
+  public async Task CancelBookingAsync(Guid id)
+  {
+    Booking? booking = await bookingRepository.GetByIdAsync(id);
+    if (booking is null)
+    {
+      throw new BookingNotFoundException(id);
+    }
+
+    if (booking.StartDate < DateTime.UtcNow)
+    {
+      throw new BookingDateAlreadyPassedException(booking.StartDate, id);
+    }
+    
+    await bookingRepository.DeleteAsync(id);
+    await bookingRepository.SaveChangesAsync();
+  }
+
+  public async Task<BookingResponseDto> UpdateBookingDateAsync(Guid bookingId, UpdateBookingRequestDto dto)
+  {
+    Booking? booking = await bookingRepository.GetByIdAsync(bookingId);
+    if (booking is null)
+    {
+      throw new BookingNotFoundException(bookingId);
+    }
+
+    if (booking.StartDate < DateTime.UtcNow)
+    {
+      throw new BookingDateAlreadyPassedException(booking.StartDate, bookingId);
+    }
+
+    bool hasOverlap = await bookingRepository.HasOverlapAsync(booking.RoomId, dto.StartDate, dto.EndDate, bookingId);
+    if (hasOverlap)
+    {
+      throw new BookingOverlapException(booking.RoomId, dto.StartDate, dto.EndDate);
+    }
+    
+    booking.UpdateFromDto(dto);
+    
+    await bookingRepository.UpdateAsync(booking);
+    await bookingRepository.SaveChangesAsync();
+    
+    return booking.ToBookingResponseDto();
+  }
 }

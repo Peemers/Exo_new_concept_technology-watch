@@ -10,6 +10,7 @@ public static class ServiceExtensions
   {
     //Services
     services.AddScoped<IBookingService, BookingService>();
+    services.AddScoped<IRoomService, RoomService>();
     
     return services;
   }
