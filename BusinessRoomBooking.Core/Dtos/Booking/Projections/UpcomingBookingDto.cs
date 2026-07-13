@@ -1,4 +1,4 @@
-﻿namespace BusinessRoomBooking.Core.Dtos.Booking.Queries;
+﻿namespace BusinessRoomBooking.Core.Dtos.Booking.Projections;
 
 public class UpcomingBookingDto
 {

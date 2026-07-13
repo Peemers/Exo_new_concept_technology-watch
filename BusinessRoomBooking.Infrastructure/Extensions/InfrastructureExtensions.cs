@@ -18,6 +18,7 @@ public static class InfrastructureExtensions
     //Repo
     services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
     services.AddScoped<IBookingRepository, BookingRepository>();
+    services.AddScoped<IRoomRepository, RoomRepository>();
     
     return services;
   }

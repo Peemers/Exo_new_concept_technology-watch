@@ -1,4 +1,4 @@
-﻿using BusinessRoomBooking.Core.Dtos.Booking.Queries;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Projections;
 using BusinessRoomBooking.Core.Interfaces.Repositories;
 using BusinessRoomBooking.Domain;
 using BusinessRoomBooking.Infrastructure.DataBase.Context;
