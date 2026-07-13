@@ -1,5 +1,8 @@
 ﻿using System.Net;
 using BusinessRoomBooking.Core.Exceptions;
+using BusinessRoomBooking.Core.Exceptions.BookingExceptions;
+using BusinessRoomBooking.Core.Exceptions.RoomExceptions;
+using BusinessRoomBooking.Core.Exceptions.WorkerExceptions;
 
 namespace BusinessRoomBooking.MiddleWare;
 

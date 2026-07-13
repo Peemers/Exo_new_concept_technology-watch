@@ -1,4 +1,4 @@
-﻿namespace BusinessRoomBooking.Core.Exceptions;
+﻿namespace BusinessRoomBooking.Core.Exceptions.BookingExceptions;
 
 public class BookingDateAlreadyPassedException : Exception
 {

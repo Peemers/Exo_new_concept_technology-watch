@@ -1,4 +1,4 @@
-﻿namespace BusinessRoomBooking.Core.Exceptions;
+﻿namespace BusinessRoomBooking.Core.Exceptions.RoomExceptions;
 
 public class RoomNotFoundException : Exception
 {

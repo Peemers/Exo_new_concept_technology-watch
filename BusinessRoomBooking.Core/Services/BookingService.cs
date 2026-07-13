@@ -1,6 +1,9 @@
 ﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
 using BusinessRoomBooking.Core.Dtos.Booking.Response;
 using BusinessRoomBooking.Core.Exceptions;
+using BusinessRoomBooking.Core.Exceptions.BookingExceptions;
+using BusinessRoomBooking.Core.Exceptions.RoomExceptions;
+using BusinessRoomBooking.Core.Exceptions.WorkerExceptions;
 using BusinessRoomBooking.Core.Interfaces.Repositories;
 using BusinessRoomBooking.Core.Interfaces.Services;
 using BusinessRoomBooking.Core.Mappers;

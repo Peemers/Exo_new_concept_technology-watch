@@ -1,6 +1,7 @@
 ﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
 using BusinessRoomBooking.Core.Dtos.Booking.Response;
 using BusinessRoomBooking.Core.Interfaces.Services;
+using BusinessRoomBooking.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessRoomBooking.Controllers;
@@ -22,6 +23,8 @@ public class BookingController
     BookingResponseDto booking = await bookingService.GetBookingByIdAsync(id);
     return Ok(booking);
   }
+  
+  //todo ajouter la methode GetUpcommingBookingByRoom ici et dans le service.
 
   [HttpDelete("{id:guid}")]
   public async Task<IActionResult> CancelBooking(Guid id)

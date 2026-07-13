@@ -1,4 +1,4 @@
-﻿namespace BusinessRoomBooking.Core.Exceptions;
+﻿namespace BusinessRoomBooking.Core.Exceptions.WorkerExceptions;
 
 public class WorkerNotFoundException : Exception
 {
