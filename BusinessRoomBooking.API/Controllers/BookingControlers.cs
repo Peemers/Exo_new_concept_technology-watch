@@ -1,4 +1,5 @@
-﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Projections;
+using BusinessRoomBooking.Core.Dtos.Booking.Request;
 using BusinessRoomBooking.Core.Dtos.Booking.Response;
 using BusinessRoomBooking.Core.Interfaces.Services;
 using BusinessRoomBooking.Domain;
@@ -24,8 +25,6 @@ public class BookingController
     return Ok(booking);
   }
   
-  //todo ajouter la methode GetUpcommingBookingByRoom ici et dans le service.
-
   [HttpDelete("{id:guid}")]
   public async Task<IActionResult> CancelBooking(Guid id)
   {

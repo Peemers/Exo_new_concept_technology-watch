@@ -1,4 +1,5 @@
-﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Projections;
+using BusinessRoomBooking.Core.Dtos.Booking.Request;
 using BusinessRoomBooking.Core.Dtos.Booking.Response;
 using BusinessRoomBooking.Core.Exceptions;
 using BusinessRoomBooking.Core.Exceptions.BookingExceptions;
@@ -30,7 +31,7 @@ public class BookingService(
     {
       throw new WorkerNotFoundException(dto.WorkerId);
     }
-    
+
     bool hasOverlap = await bookingRepository.HasOverlapAsync(dto.RoomId, dto.StartDate, dto.EndDate);
     if (hasOverlap)
     {
@@ -38,7 +39,7 @@ public class BookingService(
     }
 
     Booking booking = dto.ToBooking(room, worker);
-    
+
     await bookingRepository.AddAsync(booking);
     await bookingRepository.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ public class BookingService(
     {
       throw new BookingNotFoundException(id);
     }
+
     return booking.ToBookingResponseDto();
   }
 
@@ -67,7 +69,7 @@ public class BookingService(
     {
       throw new BookingDateAlreadyPassedException(booking.StartDate, id);
     }
-    
+
     await bookingRepository.DeleteAsync(id);
     await bookingRepository.SaveChangesAsync();
   }
@@ -90,12 +92,12 @@ public class BookingService(
     {
       throw new BookingOverlapException(booking.RoomId, dto.StartDate, dto.EndDate);
     }
-    
+
     booking.UpdateFromDto(dto);
-    
+
     await bookingRepository.UpdateAsync(booking);
     await bookingRepository.SaveChangesAsync();
-    
+
     return booking.ToBookingResponseDto();
   }
 }

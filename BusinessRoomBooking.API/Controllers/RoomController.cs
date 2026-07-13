@@ -1,4 +1,5 @@
-﻿using BusinessRoomBooking.Core.Dtos.Room.Queries;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Projections;
+using BusinessRoomBooking.Core.Dtos.Room.Queries;
 using BusinessRoomBooking.Core.Dtos.Room.Summaries;
 using BusinessRoomBooking.Core.Dtos.RoomEquipment.Request;
 using BusinessRoomBooking.Core.Interfaces.Services;
@@ -16,6 +17,13 @@ public class RoomController(
   {
     IEnumerable<RoomSummaryDto> rooms = await roomService.GetAvailableRoomsAsync(queryDto);
     return Ok(rooms);
+  }
+
+  [HttpGet ("{roomId:guid}/bookings/upcoming")]
+  public async Task<ActionResult<IEnumerable<UpcomingBookingDto>>> GetUpcomingBookingsByRoomAsync(Guid roomId)
+  {
+    IEnumerable<UpcomingBookingDto> bookings = await roomService.GetUpcomingBookingsByRoomAsync(roomId);
+    return Ok(bookings);
   }
 
   [HttpPost("{roomId:guid}/equipments")]
