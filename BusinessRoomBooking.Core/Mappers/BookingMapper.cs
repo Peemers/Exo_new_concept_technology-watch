@@ -43,7 +43,9 @@ public static class BookingMapper
       EndDate = dto.EndDate,
       NumberOfParticipant = dto.NumberOfParticipant,
       Room = room,
-      Worker = worker
+      Worker = worker,
+      WorkerId = worker.Id,
+      RoomId = room.Id,
     };
   }
 

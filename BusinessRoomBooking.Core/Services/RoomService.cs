@@ -7,6 +7,7 @@ using BusinessRoomBooking.Core.Exceptions.EquipmentExceptions;
 using BusinessRoomBooking.Core.Exceptions.RoomExceptions;
 using BusinessRoomBooking.Core.Interfaces.Repositories;
 using BusinessRoomBooking.Core.Interfaces.Services;
+using BusinessRoomBooking.Core.Mappers;
 using BusinessRoomBooking.Domain;
 
 namespace BusinessRoomBooking.Core.Services;
@@ -34,11 +35,7 @@ public class RoomService(
     bool exist = await roomEquipmentRepository.EquipmentAlreadyExistInRoomAsync(roomId, dto.EquipmentId);
     if (exist) throw new EquipmentAlreadyAssignedException(roomId, dto.EquipmentId);
 
-    RoomEquipment roomEquipment = new RoomEquipment
-    {
-      RoomId = roomId,
-      EquipmentId = dto.EquipmentId,
-    };
+    RoomEquipment roomEquipment = dto.ToRoomEquipment(roomId);
 
     await roomEquipmentRepository.AddAsync(roomEquipment);
     await roomEquipmentRepository.SaveChangesAsync();
