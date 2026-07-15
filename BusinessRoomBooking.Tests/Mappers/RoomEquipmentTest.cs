@@ -9,21 +9,21 @@ public class RoomEquipmentTest
   [Fact]
   public void ToRoomEquipment_ShouldMapCorrectly()
   {
-   //Arrange
-   
-   Guid roomId = Guid.NewGuid();
-   Guid equipmentId = Guid.NewGuid();
+    //Arrange
 
-   AssignEquipmentToRoomRequestDto assignDto = new AssignEquipmentToRoomRequestDto
-   {
-     EquipmentId = equipmentId,
-   };
-   
+    Guid roomId = Guid.NewGuid();
+    Guid equipmentId = Guid.NewGuid();
+
+    AssignEquipmentToRoomRequestDto assignDto = new AssignEquipmentToRoomRequestDto
+    {
+      EquipmentId = equipmentId,
+    };
+
     //Act
     RoomEquipment roomEquipment = assignDto.ToRoomEquipment(roomId);
-    
+
     //Assert
-    
+
     Assert.Equal(roomId, roomEquipment.RoomId);
     Assert.Equal(equipmentId, roomEquipment.EquipmentId);
   }
