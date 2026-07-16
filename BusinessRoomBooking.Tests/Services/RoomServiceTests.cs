@@ -1,4 +1,5 @@
-﻿using BusinessRoomBooking.Core.Dtos.Room.Queries;
+﻿using BusinessRoomBooking.Core.Dtos.Booking.Request;
+using BusinessRoomBooking.Core.Dtos.Room.Queries;
 using BusinessRoomBooking.Core.Dtos.Room.Summaries;
 using BusinessRoomBooking.Core.Dtos.RoomEquipment.Request;
 using BusinessRoomBooking.Core.Exceptions.EquipmentExceptions;
