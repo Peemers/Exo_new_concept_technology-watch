@@ -32,8 +32,8 @@ public class RoomServiceTests
     RoomService roomService = new RoomService(roomRepository, roomEquipmentRepository, equipmentRepository, bookingRepository);
     AvailableRoomsQueryDto queryDto = new AvailableRoomsQueryDto
     {
-      StartDate = new DateTime(2026, 8, 1, 14, 0, 0),
-      EndDate = new DateTime(2026, 8, 1, 16, 0, 0),
+      StartDate = DateTime.UtcNow.AddDays(1),
+      EndDate = DateTime.UtcNow.AddDays(1),
       MinCapacity = 5
     };
 

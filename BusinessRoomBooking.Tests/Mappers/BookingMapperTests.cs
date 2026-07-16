@@ -20,8 +20,8 @@ public class BookingMapperTests
       NumberOfParticipant = 5,
       Room = room,
       Worker = worker,
-      StartDate = new DateTime(2026, 8, 1, 14, 0, 0),
-      EndDate = new DateTime(2026, 8, 1, 14, 0, 0),
+      StartDate = DateTime.UtcNow.AddDays(1),
+      EndDate = DateTime.UtcNow.AddDays(1),
     };
     //Act
     BookingResponseDto result = booking.ToBookingResponseDto();
@@ -40,8 +40,8 @@ public class BookingMapperTests
     Worker worker = new Worker { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@mail.be" };
     CreateBookingRequestDto bookingRequestDto = new CreateBookingRequestDto
     {
-      EndDate = new DateTime(2026, 8, 1, 16, 0, 0),
-      StartDate = new DateTime(2026, 8, 1, 14, 0, 0),
+      EndDate = DateTime.UtcNow.AddDays(1) ,
+      StartDate = DateTime.UtcNow.AddDays(1),
       NumberOfParticipant = 10,
       RoomId = room.Id,
       WorkerId = worker.Id,
@@ -70,13 +70,13 @@ public class BookingMapperTests
       Id = Guid.NewGuid(),
       NumberOfParticipant = 10,
       RoomId = Guid.NewGuid(),
-      StartDate = new DateTime(2026, 8, 1, 14, 0, 0),
-      EndDate = new DateTime(2026, 8, 1, 15, 0, 0),
+      StartDate = DateTime.UtcNow.AddDays(1),
+      EndDate = DateTime.UtcNow.AddDays(1)
     };
     UpdateBookingRequestDto requestDto = new UpdateBookingRequestDto
     {
-      StartDate = new DateTime(2026, 8, 1, 15, 0, 0),
-      EndDate = new DateTime(2026, 8, 1, 16, 0, 0),
+      StartDate = DateTime.UtcNow.AddDays(1),
+      EndDate = DateTime.UtcNow.AddDays(1),
       NumberOfParticipant = 8,
     };
     
