@@ -20,6 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BusinessRoomBooking.API\BusinessRoomBooking.API.csproj" />
       <ProjectReference Include="..\BusinessRoomBooking.Core\BusinessRoomBooking.Core.csproj" />
     </ItemGroup>
 

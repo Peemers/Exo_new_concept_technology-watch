@@ -22,7 +22,7 @@ public class WorkerController(
   }
 
   [HttpPost]
-  public async Task<ActionResult<WorkerResponseDto>> Create([FromBody] CreateWorkerRequestDto dto)
+  public async Task<ActionResult<WorkerResponseDto>> CreateWorker([FromBody] CreateWorkerRequestDto dto)
   {
     Worker worker = dto.ToWorker();
     
