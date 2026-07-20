@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BusinessRoomBooking.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class RoomController(
   IRoomService roomService,
   IBaseRepository<Room> roomRepository) : ControllerBase
