@@ -13,6 +13,7 @@ public static class RoomMapper
       Id = room.Id,
       MaxCapacity = room.MaxCapacity,
       Location = room.Location,
+      Name = room.Name,
     };
   }
 
@@ -23,6 +24,7 @@ public static class RoomMapper
       Id = Guid.NewGuid(),
       MaxCapacity = dto.MaxCapacity,
       Location = dto.Location,
+      Name = dto.Name,
     };
   }
 }

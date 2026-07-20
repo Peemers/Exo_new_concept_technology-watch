@@ -25,7 +25,7 @@ public class RoomServiceTests
 
     List<RoomSummaryDto> roomSummary = new List<RoomSummaryDto>
     {
-      new RoomSummaryDto { Id = Guid.NewGuid(), Location = "Salle A" }
+      new RoomSummaryDto { Id = Guid.NewGuid(), Location = "1er étages", Name = "Salle A" },
     };
 
     roomRepository.GetAvailableRoomsAsync(Arg.Any<AvailableRoomsQueryDto>()).Returns(roomSummary);
@@ -73,9 +73,10 @@ public class RoomServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
     RoomService roomService = new RoomService(roomRepository, roomEquipmentRepository, equipmentRepository, bookingRepository);
     roomEquipmentRepository.EquipmentAlreadyExistInRoomAsync(roomId, equipmentId).Returns(false);
@@ -133,8 +134,9 @@ public class RoomServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
+      Name = "Salle A"
     };
     
     AssignEquipmentToRoomRequestDto assignDto = new AssignEquipmentToRoomRequestDto
@@ -166,7 +168,7 @@ public class RoomServiceTests
       EquipmentId = equipmentId,
     };
     
-    Room room = new Room{Id = roomId, Location = "Salle A", MaxCapacity = 10};
+    Room room = new Room{Id = roomId, Location = "1er étages", MaxCapacity = 10, Name = "Salle A"};
     Equipment equipment = new Equipment{Id = equipmentId, Name = "Test"};
     
     roomRepository.GetByIdAsync(roomId).Returns(room);

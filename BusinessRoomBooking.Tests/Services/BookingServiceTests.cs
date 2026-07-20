@@ -27,10 +27,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étage",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker
@@ -108,7 +109,8 @@ public class BookingServiceTests
       Location = "Salle A",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker
@@ -155,10 +157,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker
@@ -204,10 +207,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker
@@ -252,10 +256,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker
@@ -352,10 +357,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     CreateBookingRequestDto dto = new CreateBookingRequestDto
@@ -398,10 +404,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
-      RoomEquipments = new List<RoomEquipment>()
+      RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     CreateBookingRequestDto dto = new CreateBookingRequestDto
@@ -435,10 +442,11 @@ public class BookingServiceTests
     Room room = new Room
     {
       Id = roomId,
-      Location = "Salle A",
+      Location = "1er étages",
       MaxCapacity = 10,
       Bookings = new List<Booking>(),
       RoomEquipments = new List<RoomEquipment>(),
+      Name = "Salle A"
     };
 
     Worker worker = new Worker

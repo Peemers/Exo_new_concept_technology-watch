@@ -12,7 +12,7 @@ public class BookingMapperTests
   {
     //Arrange
 
-    Room room = new Room { Id = Guid.NewGuid(), MaxCapacity = 10, Location = "Salle A" };
+    Room room = new Room { Id = Guid.NewGuid(), MaxCapacity = 10, Location = "1er étage", Name = "Salle A" };
     Worker worker = new Worker{Id = Guid.NewGuid(), FirstName =  "John", LastName = "Doe", Email = "john.doe@mail.be"};
     Booking booking = new Booking
     {
@@ -36,7 +36,7 @@ public class BookingMapperTests
   {
     //Arrange
     
-    Room room = new Room { Id = Guid.NewGuid(), MaxCapacity = 10, Location = "Salle A" };
+    Room room = new Room { Id = Guid.NewGuid(), MaxCapacity = 10, Location = "1er étage", Name = "Salle A"};
     Worker worker = new Worker { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@mail.be" };
     CreateBookingRequestDto bookingRequestDto = new CreateBookingRequestDto
     {

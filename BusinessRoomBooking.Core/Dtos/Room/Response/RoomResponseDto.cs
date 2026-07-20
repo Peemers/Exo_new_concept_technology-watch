@@ -5,4 +5,5 @@ public record RoomResponseDto
   public Guid Id { get; init; }
   public required int MaxCapacity { get; init; }
   public required string Location  { get; init; }
+  public required string Name  { get; init; }
 }

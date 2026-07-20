@@ -13,7 +13,8 @@ public static class BookingMapper
     RoomSummaryDto roomSummary = new RoomSummaryDto
     {
       Id = booking.Room.Id,
-      Location = booking.Room.Location
+      Location = booking.Room.Location,
+      Name = booking.Room.Name,
     };
 
     WorkerSummaryDto workerSummary = new WorkerSummaryDto

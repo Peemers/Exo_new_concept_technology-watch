@@ -4,4 +4,5 @@ public record RoomSummaryDto
 {
   public required Guid Id { get; init; }
   public required string Location { get; init; }
+  public required string Name { get; init; }
 }

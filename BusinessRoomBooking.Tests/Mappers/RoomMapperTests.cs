@@ -16,8 +16,9 @@ public class RoomMapperTests
     Room room = new Room
     {
       Id = Guid.NewGuid(),
-      Location = "Salle A",
+      Location = "1er étage",
       MaxCapacity = 10,
+      Name = "Salle A"
     };
     
     //Act
@@ -29,6 +30,7 @@ public class RoomMapperTests
     Assert.Equal(room.Id, dto.Id);
     Assert.Equal(room.Location, dto.Location);
     Assert.Equal(room.MaxCapacity, dto.MaxCapacity);
+    Assert.Equal(room.Name, dto.Name);
   }
 
   [Fact]
@@ -38,8 +40,9 @@ public class RoomMapperTests
 
     CreateRoomRequestDto dto = new CreateRoomRequestDto
     {
-      Location = "Salle A",
+      Location = "1er étage",
       MaxCapacity = 10,
+      Name =  "Salle A"
     };
     
     //Act
@@ -50,5 +53,6 @@ public class RoomMapperTests
     
     Assert.Equal(dto.Location, room.Location);
     Assert.Equal(dto.MaxCapacity, room.MaxCapacity);
+    Assert.Equal(dto.Name, room.Name);
   }
 }

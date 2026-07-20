@@ -20,6 +20,7 @@ public class RoomRepository(BusinessRoomBookingContext context)
       {
         Id = r.Id,
         Location = r.Location,
+        Name = r.Name,
       }).ToListAsync();
   }
 }
