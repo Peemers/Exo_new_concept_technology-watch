@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text.Json;
 using BusinessRoomBooking.Core.Exceptions;
 using BusinessRoomBooking.Core.Exceptions.BookingExceptions;
 using BusinessRoomBooking.Core.Exceptions.EquipmentExceptions;
@@ -36,6 +37,9 @@ public class ExceptionMiddleware(RequestDelegate next)
     };
     context.Response.StatusCode = statusCode;
     context.Response.ContentType = "application/json";
+
+    var errorResponse = new { message };
+    string json = JsonSerializer.Serialize(errorResponse);
     return context.Response.WriteAsync(message);
   }
 }
