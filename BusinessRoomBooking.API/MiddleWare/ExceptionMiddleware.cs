@@ -40,6 +40,6 @@ public class ExceptionMiddleware(RequestDelegate next)
 
     var errorResponse = new { message };
     string json = JsonSerializer.Serialize(errorResponse);
-    return context.Response.WriteAsync(message);
+    return context.Response.WriteAsync(json);
   }
 }
