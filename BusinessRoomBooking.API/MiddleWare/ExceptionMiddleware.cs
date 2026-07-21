@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using BusinessRoomBooking.Core.Exceptions;
 using BusinessRoomBooking.Core.Exceptions.BookingExceptions;
+using BusinessRoomBooking.Core.Exceptions.EquipmentExceptions;
 using BusinessRoomBooking.Core.Exceptions.RoomExceptions;
 using BusinessRoomBooking.Core.Exceptions.WorkerExceptions;
 
@@ -27,6 +28,10 @@ public class ExceptionMiddleware(RequestDelegate next)
       WorkerNotFoundException => ((int)HttpStatusCode.NotFound, ex.Message),
       BookingNotFoundException => ((int)HttpStatusCode.NotFound, ex.Message),
       BookingOverlapException => ((int)HttpStatusCode.Conflict, ex.Message),
+      EquipmentNotFoundException => ((int)HttpStatusCode.NotFound, ex.Message),
+      EquipmentAlreadyAssignedException => ((int)HttpStatusCode.Conflict, ex.Message),
+      BookingDateAlreadyPassedException => ((int)HttpStatusCode.Conflict, ex.Message),
+      WorkerEmailAlreadyExistException => ((int)HttpStatusCode.Conflict, ex.Message),
       _ => ((int)HttpStatusCode.InternalServerError, "Une erreur interne est survenue.")
     };
     context.Response.StatusCode = statusCode;
